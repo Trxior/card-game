@@ -1,0 +1,230 @@
+$black: #212121;
+$gold: #8fda1f;
+$white: #f0f0ee;
+$blue5: #030505;
+$blue: #0b1616;
+$padding: 40px;
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    list-style: none;
+    box-sizing: border-box;
+    line-height: 1em;
+}
+
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+    font: 16px Ubuntu;
+    background: $blue5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    grid-gap: $padding/2;
+    padding: $padding/2;
+
+    &__active {
+        display: grid;
+        grid-template: 220px / 180px 160px 160px 180px;
+        grid-gap: $padding*2;
+        margin: 0 auto;
+    }
+
+    &__tile {
+        width: 32vw;
+        height: 44vw;
+        max-width: 160px;
+        max-height: 220px;
+        border: dashed 2px $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__result {
+        width: 32vw;
+        height: 44vw;
+        max-width: 160px;
+        max-height: 220px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
+        border-bottom: solid 4px $gold;
+        font-size: 24px;
+
+        & > span {
+            color: $white;
+            text-transform: uppercase;
+        }
+    }
+
+    &__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 24vw;
+        height: 36vw;
+        max-width: 120px;
+        max-height: 180px;
+        background-image: url('../img/front.svg');
+        background-size: cover;
+        background-position: center;
+        border: solid 2px $gold;
+        color: $white;
+        font-size: 64px;
+        font-weight: 700;
+    }
+
+    &__opponent &__item {
+        background-image: url('../img/back.svg');
+        color: $gold;
+    }
+}
+
+.text {
+    padding: $padding/2;
+    font-size: 96px;
+    font-weight: 700;
+    color: $white;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.menu {
+    display: grid;
+    grid-gap: $padding/2;
+
+    .btn {
+        margin: 0 auto;
+        display: block;
+        font-size: 32px;
+        border: solid 2px $gold;
+        min-width: 10em;
+        background: transparent;
+        font-weight: 700;
+        color: $white;
+        text-transform: uppercase;
+        padding: .5em;
+        transition: .75s;
+
+        &:hover {
+            background: $gold;
+            color: $black;
+        }
+    }
+
+    &--absolute {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin: $padding/2;
+        padding: $padding/2;
+
+        .btn {
+            font-size: 24px;
+        }
+    }
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: .75s;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 1040px) {
+    .menu {
+        .btn {
+            font-size: 24px;
+            min-width: 10em;
+            padding: .5em;
+        }
+
+        &--absolute {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            background: $gold;
+            margin: 0;
+            padding: $padding/2;
+
+            .btn {
+                color: $black;
+                border: 2px solid $black;
+
+                &:hover {
+                    background: $black;
+                    color: $gold;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 960px) {
+
+    body {
+        grid-gap: $padding/2;
+    }
+
+    .cards {
+        &__active {
+            display: grid;
+            grid-template: auto auto / .5fr .5fr;
+            grid-gap: $padding/2;
+        }
+
+        &__result {
+            height: auto;
+            font-size: 20px;
+            order: 1;
+        }
+
+        &__tile {
+            order: 3;
+        }
+
+        &__opponent {
+            display: none;
+        }
+    }
+
+    .text {
+        font-size: 48px;
+
+        &--lg {
+            font-size: 64px;
+        }
+    }
+}
+
+/* Grid - 3 wiersze mobile i desktop */
