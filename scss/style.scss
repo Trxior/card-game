@@ -1,8 +1,6 @@
-$black: #212121;
 $gold: #8fda1f;
 $white: #f0f0ee;
-$blue5: #030505;
-$blue: #0b1616;
+$blue: #030505;
 $padding: 40px;
 
 * {
@@ -15,23 +13,22 @@ $padding: 40px;
 }
 
 body {
-    min-height: 100vh;
-    min-width: 100vw;
+    height: 100vh;
+    width: 100vw;
     font: 16px Ubuntu;
-    background: $blue5;
+    background: $blue;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: relative;
 }
 
 .main {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: grid;
+    grid-gap: $padding/2;
+    align-content: space-between;
     margin: 0 auto;
-    min-height: 100vh;
+    min-height: 95vh;
 }
 
 .cards {
@@ -97,7 +94,6 @@ body {
 
     &__opponent &__item {
         background-image: url('../img/back.svg');
-        color: $gold;
     }
 }
 
@@ -129,7 +125,7 @@ body {
 
         &:hover {
             background: $gold;
-            color: $black;
+            color: $blue;
         }
     }
 
@@ -178,11 +174,11 @@ body {
             padding: $padding/2;
 
             .btn {
-                color: $black;
-                border: 2px solid $black;
+                color: $blue;
+                border: 2px solid $blue;
 
                 &:hover {
-                    background: $black;
+                    background: $blue;
                     color: $gold;
                 }
             }

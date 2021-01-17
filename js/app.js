@@ -13,7 +13,7 @@ let cards = {
             points: 0
         }
     },
-    setRounds = 5;
+    setRounds = 10;
 timeout = false;
 
 fadeIn = (el) => {
