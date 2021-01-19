@@ -7,27 +7,28 @@
   line-height: 1em; }
 
 body {
-  height: 100vh;
-  width: 100vw;
   font: 16px Ubuntu;
   background: #030505;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; }
+  flex-direction: column;
+  max-height: 100vh;
+  height: 100vh;
+  position: relative; }
 
 .main {
+  height: 100%;
   display: grid;
-  grid-gap: 20px;
-  align-content: space-between;
-  margin: 0 auto;
-  min-height: 95vh; }
+  grid-template-rows: 1fr 1fr;
+  align-content: center;
+  margin: 0 auto; }
 
 .cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-content: center;
   grid-gap: 20px;
   padding: 20px; }
   .cards__active {
@@ -73,8 +74,6 @@ body {
     color: #f0f0ee;
     font-size: 64px;
     font-weight: 700; }
-  .cards__opponent .cards__item {
-    background-image: url("../img/back.svg"); }
 
 .text {
   padding: 20px;
@@ -103,11 +102,7 @@ body {
       background: #8fda1f;
       color: #030505; }
   .menu--absolute {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin: 20px;
-    padding: 20px; }
+    width: 100%; }
     .menu--absolute .btn {
       font-size: 24px; }
 
@@ -127,11 +122,13 @@ body {
     min-width: 10em;
     padding: .5em; }
   .menu--absolute {
-    position: absolute;
-    width: 100%;
+    position: sticky;
+    width: 100vw;
     left: 0;
+    bottom: 0;
     background: #8fda1f;
-    margin: 0;
+    margin: -20px;
+    margin-top: 0;
     padding: 20px; }
     .menu--absolute .btn {
       color: #030505;
@@ -143,6 +140,9 @@ body {
 @media (max-width: 960px) {
   body {
     grid-gap: 20px; }
+  .main {
+    align-content: space-between;
+    grid-template-rows: auto auto; }
   .cards__active {
     display: grid;
     grid-template: auto auto / .5fr .5fr;

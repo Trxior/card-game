@@ -13,29 +13,30 @@ $padding: 40px;
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
     font: 16px Ubuntu;
     background: $blue;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    max-height: 100vh;
+    height: 100vh;
+    position: relative;
 }
 
 .main {
+    height: 100%;
     display: grid;
-    grid-gap: $padding/2;
-    align-content: space-between;
+    grid-template-rows: 1fr 1fr;
+    align-content: center;
     margin: 0 auto;
-    min-height: 95vh;
 }
 
 .cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-content: center;
     grid-gap: $padding/2;
     padding: $padding/2;
 
@@ -91,10 +92,6 @@ body {
         font-size: 64px;
         font-weight: 700;
     }
-
-    &__opponent &__item {
-        background-image: url('../img/back.svg');
-    }
 }
 
 .text {
@@ -130,11 +127,7 @@ body {
     }
 
     &--absolute {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        margin: $padding/2;
-        padding: $padding/2;
+        width: 100%;
 
         .btn {
             font-size: 24px;
@@ -166,11 +159,13 @@ body {
         }
 
         &--absolute {
-            position: absolute;
-            width: 100%;
+            position: sticky;
+            width: 100vw;
             left: 0;
+            bottom: 0;
             background: $gold;
-            margin: 0;
+            margin: -$padding/2;
+            margin-top: 0;
             padding: $padding/2;
 
             .btn {
@@ -190,6 +185,11 @@ body {
 
     body {
         grid-gap: $padding/2;
+    }
+
+    .main {
+        align-content: space-between;
+        grid-template-rows: auto auto;
     }
 
     .cards {

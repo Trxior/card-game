@@ -13,7 +13,7 @@ let cards = {
             points: 0
         }
     },
-    setRounds = 10;
+    setRounds = 7;
 timeout = false;
 
 fadeIn = (el) => {
@@ -34,7 +34,6 @@ newGame = () => {
     createTable();
 
     showCards('mine');
-    showCards('opponent');
 
     chooseCard();
 }
@@ -43,7 +42,6 @@ createTable = () => {
     let main = document.createElement('main');
     main.className = 'main';
     main.innerHTML = `
-        <section class="cards cards__opponent" id="opponent"></section>
         <section class="cards cards__active" id="active">
             <p class="cards__result">
                 <span>Opponent</span>
@@ -130,7 +128,6 @@ chooseCard = () => {
                 cards.opponent.cards.splice(randomNum, 1);
 
                 removeCard(e);
-                removeCard(opponent.childNodes[randomNum]);
                 createCard(secondCard, mineCard);
                 createCard(firstCard, opponentCard);
 
@@ -166,7 +163,6 @@ displayPoints = (a, b, pts) => {
 
 checkResults = () => {
     if (rounds === 0) {
-        opponent.innerHTML = `<span class="text">Game Over</span>`;
         if (cards.mine.points > cards.opponent.points) {
             mine.innerHTML = `<span class="text">You won!</span>`;
         } else if (cards.opponent.points > cards.mine.points) {
@@ -174,13 +170,9 @@ checkResults = () => {
         } else {
             mine.innerHTML = `<span class="text">Draw!</span>`;
         }
-        fadeIn(opponent);
         fadeIn(mine);
-
-        setTimeout(() => {
-            app.appendChild(menu);
-            fadeIn(menu);
-        }, 2000);
+        mine.appendChild(menu);
+        fadeIn(menu);
     }
 }
 
