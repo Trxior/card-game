@@ -38,6 +38,24 @@ newGame = () => {
     chooseCard();
 }
 
+showSettings = () => {
+    let div = document.createElement('div');
+    div.className = 'settings';
+    div.innerHTML = `
+    <div class="settings" id="settings-box">
+        <div class="settings__box">
+            <h2 class="text text--sm">Ustawienia</h2>
+            <button class="btn--circle" id="btn-close"></button>
+        </div>
+    </div>`;
+    app.appendChild(div);
+    fadeIn(div);
+    
+    document.getElementById('btn-close').addEventListener('click', () => {
+       document.querySelector('.settings').remove();
+    })
+}
+
 createTable = () => {
     let main = document.createElement('main');
     main.className = 'main';
@@ -181,6 +199,10 @@ start = () => {
         menu.classList.add('menu--absolute');
         app.innerHTML = null;
         return newGame();
+    })
+    
+    document.getElementById('settings').addEventListener('click', () => {
+        return showSettings();
     })
 }
 
