@@ -12,6 +12,10 @@ $padding: 40px;
     line-height: 1em;
 }
 
+button {
+    cursor: pointer;
+}
+
 body {
     font: 16px Ubuntu;
     background: $blue;
@@ -21,7 +25,7 @@ body {
     flex-direction: column;
     max-height: 100vh;
     height: 100vh;
-    grid-gap: $padding/2;
+    grid-gap: $padding/1.5;
     position: relative;
 }
 
@@ -104,7 +108,7 @@ body {
     text-align: center;
 
     &--sm {
-        font-size: 48px;
+        font-size: 32px;
     }
 }
 
@@ -133,13 +137,13 @@ body {
     background: rgba(0, 0, 0, .75);
 
     &__box {
+        display: grid;
+        grid-gap: $padding;
         position: relative;
         width: 100%;
-        max-width: 700px;
-        height: 400px;
+        max-width: 600px;
         background: $blue;
-        color: $white;
-        border: solid 2px $gold;
+        border: solid 1px $gold;
         padding: $padding/2;
         margin: $padding/2;
     }
@@ -166,16 +170,62 @@ body {
         background: $gold;
         color: $blue;
     }
+}
 
-    &--circle {
+.form {
+    display: grid;
+    grid-template: 1fr / 1fr 1fr;
+    grid-gap: $padding/2;
+
+    &__tile {
+        display: flex;
+        flex-direction: column;
+        grid-gap: $padding/4;
+    }
+
+    &__label {
+        text-transform: uppercase;
+        color: $gold;
+    }
+
+    &__input {
+        color: $white;
+        border: solid 1px $white;
+        padding: 8px;
+        font-size: 20px;
+        background: none;
+        width: 100%;
+    }
+
+    &__btn-box {
         position: absolute;
         top: 20px;
-        right: 0;
-        width: 48px;
-        height: 48px;
-        background: $blue;
-        border: solid 2px $gold;
-        border-right: none;
+        right: 20px;
+        display: flex;
+        justify-content: space-around;
+        grid-gap: $padding/2;
+    }
+
+    &__btn {
+        background: none;
+        text-transform: uppercase;
+        font-size: 20px;
+        border: none;
+        padding: 6px 12px;
+        min-width: 100px;
+
+        &--red {
+            color: #dc141b;
+            border-top: solid 2px #dc141b;
+            border-bottom: solid 2px #dc141b;
+        }
+
+        &--green {
+            right: 62px;
+            color: forestgreen;
+            border-top: solid 2px forestgreen;
+            border-bottom: solid 2px forestgreen;
+        }
     }
 }
 
@@ -222,14 +272,6 @@ body {
         font-size: 24px;
         min-width: 10em;
         padding: .5em;
-
-        &--circle {
-            top: 12px;
-        }
-    }
-
-    body {
-        grid-gap: $padding/2;
     }
 
     .main {
@@ -263,11 +305,27 @@ body {
         font-size: 48px;
 
         &--sm {
-            font-size: 32px;
+            font-size: 28px;
         }
 
         &--lg {
             font-size: 64px;
+        }
+    }
+
+    .form {
+        display: grid;
+        grid-template: 1fr 1fr / 1fr;
+
+        &__btn-box {
+            position: relative;
+            margin-top: $padding/2;
+            top: auto;
+            right: auto;
+        }
+
+        &__btn {
+            font-size: 24px;
         }
     }
 }

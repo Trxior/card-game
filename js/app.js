@@ -13,8 +13,10 @@ let cards = {
             points: 0
         }
     },
-    setRounds = 7;
-timeout = false;
+    setRounds = 10,
+    timeout = false,
+    playerName = 'Player';
+
 
 fadeIn = (el) => {
     el.classList.add('fade');
@@ -44,15 +46,41 @@ showSettings = () => {
     div.innerHTML = `
     <div class="settings" id="settings-box">
         <div class="settings__box">
-            <h2 class="text text--sm">Ustawienia</h2>
-            <button class="btn--circle" id="btn-close"></button>
+            <h2 class="text text--sm">Settings</h2>
+            <div class="form">
+                <div class="form__tile">
+                    <label for="player-name" class="form__label">Player name</label>
+                    <input type="text" id="player-name" minlength="3" maxlength="20" value="${playerName}" class="form__input">
+                </div>
+                <div class="form__tile">
+                    <label for="cards-number" class="form__label">Number of cards</label>
+                    <input type="number" id="cards-number" min="5" max="20" value="${setRounds}" class="form__input">
+                </div>
+            <div class="form__btn-box">
+                <button class="form__btn form__btn--green" id="btn-accept">Accept</button>
+                <button class="form__btn form__btn--red" id="btn-cancel">Cancel</button>
+            </div>
+            </div>
         </div>
     </div>`;
     app.appendChild(div);
     fadeIn(div);
-    
-    document.getElementById('btn-close').addEventListener('click', () => {
-       document.querySelector('.settings').remove();
+
+    document.getElementById('btn-accept').addEventListener('click', () => {
+        let playerNameInput = document.getElementById("player-name").value;
+        let cardsNumberInput = document.getElementById("cards-number").value;
+
+        if (cardsNumberInput <= 20 && cardsNumberInput >= 5 && playerNameInput.length >= 3 && playerNameInput.length <= 20) {
+            console.log(playerNameInput);
+            console.log(cardsNumberInput);
+            setRounds = cardsNumberInput;
+            playerName = playerNameInput;
+            document.querySelector('.settings').remove();
+        }
+    })
+
+    document.getElementById('btn-cancel').addEventListener('click', () => {
+        document.querySelector('.settings').remove();
     })
 }
 
@@ -68,7 +96,7 @@ createTable = () => {
             <div class="cards__tile" id="opponent-card"></div>
             <div class="cards__tile" id="mine-card"></div>
             <p class="cards__result">
-                <span>Trxior</span>
+                <span>${playerName}</span>
                 <span class="text text--lg" id="mine-result">0</span>
             </p>
         </section>
@@ -200,7 +228,7 @@ start = () => {
         app.innerHTML = null;
         return newGame();
     })
-    
+
     document.getElementById('settings').addEventListener('click', () => {
         return showSettings();
     })

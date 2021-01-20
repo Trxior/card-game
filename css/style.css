@@ -6,6 +6,9 @@
   box-sizing: border-box;
   line-height: 1em; }
 
+button {
+  cursor: pointer; }
+
 body {
   font: 16px Ubuntu;
   background: #030505;
@@ -15,7 +18,7 @@ body {
   flex-direction: column;
   max-height: 100vh;
   height: 100vh;
-  grid-gap: 20px;
+  grid-gap: 26.66667px;
   position: relative; }
 
 .main {
@@ -84,7 +87,7 @@ body {
   text-transform: uppercase;
   text-align: center; }
   .text--sm {
-    font-size: 48px; }
+    font-size: 32px; }
 
 .menu {
   display: grid;
@@ -105,13 +108,13 @@ body {
   width: 100vw;
   background: rgba(0, 0, 0, 0.75); }
   .settings__box {
+    display: grid;
+    grid-gap: 40px;
     position: relative;
     width: 100%;
-    max-width: 700px;
-    height: 400px;
+    max-width: 600px;
     background: #030505;
-    color: #f0f0ee;
-    border: solid 2px #8fda1f;
+    border: solid 1px #8fda1f;
     padding: 20px;
     margin: 20px; }
   .settings .text {
@@ -132,15 +135,48 @@ body {
   .btn:hover {
     background: #8fda1f;
     color: #030505; }
-  .btn--circle {
+
+.form {
+  display: grid;
+  grid-template: 1fr / 1fr 1fr;
+  grid-gap: 20px; }
+  .form__tile {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 10px; }
+  .form__label {
+    text-transform: uppercase;
+    color: #8fda1f; }
+  .form__input {
+    color: #f0f0ee;
+    border: solid 1px #f0f0ee;
+    padding: 8px;
+    font-size: 20px;
+    background: none;
+    width: 100%; }
+  .form__btn-box {
     position: absolute;
     top: 20px;
-    right: 0;
-    width: 48px;
-    height: 48px;
-    background: #030505;
-    border: solid 2px #8fda1f;
-    border-right: none; }
+    right: 20px;
+    display: flex;
+    justify-content: space-around;
+    grid-gap: 20px; }
+  .form__btn {
+    background: none;
+    text-transform: uppercase;
+    font-size: 20px;
+    border: none;
+    padding: 6px 12px;
+    min-width: 100px; }
+    .form__btn--red {
+      color: #dc141b;
+      border-top: solid 2px #dc141b;
+      border-bottom: solid 2px #dc141b; }
+    .form__btn--green {
+      right: 62px;
+      color: forestgreen;
+      border-top: solid 2px forestgreen;
+      border-bottom: solid 2px forestgreen; }
 
 .fade {
   animation-name: fade;
@@ -172,10 +208,6 @@ body {
     font-size: 24px;
     min-width: 10em;
     padding: .5em; }
-    .btn--circle {
-      top: 12px; }
-  body {
-    grid-gap: 20px; }
   .main {
     align-content: space-between;
     grid-template-rows: auto auto; }
@@ -194,8 +226,18 @@ body {
   .text {
     font-size: 48px; }
     .text--sm {
-      font-size: 32px; }
+      font-size: 28px; }
     .text--lg {
-      font-size: 64px; } }
+      font-size: 64px; }
+  .form {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr; }
+    .form__btn-box {
+      position: relative;
+      margin-top: 20px;
+      top: auto;
+      right: auto; }
+    .form__btn {
+      font-size: 24px; } }
 
 /* Grid - 3 wiersze mobile i desktop */
