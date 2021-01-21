@@ -56,10 +56,10 @@ showSettings = () => {
                     <label for="cards-number" class="form__label">Number of cards</label>
                     <input type="number" id="cards-number" min="5" max="20" value="${setRounds}" class="form__input">
                 </div>
-            <div class="form__btn-box">
-                <button class="form__btn form__btn--green" id="btn-accept">Accept</button>
-                <button class="form__btn form__btn--red" id="btn-cancel">Cancel</button>
-            </div>
+                <div class="form__btn-box">
+                    <button class="form__btn form__btn--green" id="btn-accept">Save</button>
+                    <button class="form__btn form__btn--red" id="btn-cancel">Close</button>
+                </div>
             </div>
         </div>
     </div>`;
@@ -71,8 +71,6 @@ showSettings = () => {
         let cardsNumberInput = document.getElementById("cards-number").value;
 
         if (cardsNumberInput <= 20 && cardsNumberInput >= 5 && playerNameInput.length >= 3 && playerNameInput.length <= 20) {
-            console.log(playerNameInput);
-            console.log(cardsNumberInput);
             setRounds = cardsNumberInput;
             playerName = playerNameInput;
             document.querySelector('.settings').remove();

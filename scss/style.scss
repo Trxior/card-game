@@ -1,7 +1,15 @@
-$gold: #8fda1f;
-$white: #f0f0ee;
-$blue: #030505;
+/*$gold: #8fda1f;
+$black: #f0f0ee;
+$black: #030505;*/
 $padding: 40px;
+
+$pink: rgba(234, 98, 98, 1);
+$white: rgba(242, 242, 242, 1);
+$black: rgba(12, 12, 12, 1);
+
+$red: crimson;
+$green: forestgreen;
+
 
 * {
     margin: 0;
@@ -18,7 +26,7 @@ button {
 
 body {
     font: 16px Ubuntu;
-    background: $blue;
+    background: $black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,7 +80,7 @@ body {
         justify-content: flex-end;
         align-items: center;
         flex-direction: column;
-        border-bottom: solid 4px $gold;
+        border-bottom: solid 4px $pink;
         font-size: 24px;
 
         & span {
@@ -93,8 +101,8 @@ body {
         background-image: url('../img/front.svg');
         background-size: cover;
         background-position: center;
-        border: solid 2px $gold;
-        color: $white;
+        border: solid 2px $pink;
+        color: $pink;
         font-size: 64px;
         font-weight: 700;
     }
@@ -142,8 +150,8 @@ body {
         position: relative;
         width: 100%;
         max-width: 600px;
-        background: $blue;
-        border: solid 1px $gold;
+        background: $black;
+        border: solid 2px $white;
         padding: $padding/2;
         margin: $padding/2;
     }
@@ -157,18 +165,18 @@ body {
     margin: 0 auto;
     display: block;
     font-size: 32px;
-    border: solid 2px $gold;
+    border: solid 2px $pink;
     min-width: 10em;
     background: transparent;
     font-weight: 700;
-    color: $white;
+    color: $pink;
     text-transform: uppercase;
     padding: .5em;
     transition: .75s;
 
     &:hover {
-        background: $gold;
-        color: $blue;
+        background: $pink;
+        color: $black;
     }
 }
 
@@ -185,7 +193,7 @@ body {
 
     &__label {
         text-transform: uppercase;
-        color: $gold;
+        color: $white;
     }
 
     &__input {
@@ -210,21 +218,20 @@ body {
         background: none;
         text-transform: uppercase;
         font-size: 20px;
-        border: none;
-        padding: 6px 12px;
+        padding: 8px;
+        width: 100%;
         min-width: 100px;
+        transition: .75s;
 
         &--red {
-            color: #dc141b;
-            border-top: solid 2px #dc141b;
-            border-bottom: solid 2px #dc141b;
+            border: solid 2px $red;
+            color: $red;
         }
 
         &--green {
             right: 62px;
-            color: forestgreen;
-            border-top: solid 2px forestgreen;
-            border-bottom: solid 2px forestgreen;
+            border: solid 2px $green;
+            color: $green;
         }
     }
 }
@@ -251,18 +258,18 @@ body {
             width: 100vw;
             left: 0;
             bottom: 0;
-            background: $gold;
+            background: $pink;
             margin: -$padding/2;
             margin-top: 0;
             padding: $padding/2;
 
             .btn {
-                color: $blue;
-                border: 2px solid $blue;
+                color: $black;
+                border: 2px solid $black;
 
                 &:hover {
-                    background: $blue;
-                    color: $gold;
+                    background: $black;
+                    color: $pink;
                 }
             }
         }
@@ -323,11 +330,5 @@ body {
             top: auto;
             right: auto;
         }
-
-        &__btn {
-            font-size: 24px;
-        }
     }
 }
-
-/* Grid - 3 wiersze mobile i desktop */

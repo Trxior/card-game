@@ -29,8 +29,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8284271"
-     inkscape:cx="0.11402238"
-     inkscape:cy="74.824932"
+     inkscape:cx="-51.68155"
+     inkscape:cy="74.117825"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -49,7 +49,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -58,20 +58,6 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-872.36216)">
-    <rect
-       style="fill:#f0f0ee;fill-opacity:1"
-       id="rect4138"
-       width="120"
-       height="180"
-       x="0"
-       y="872.55499" />
-    <rect
-       style="opacity:1;fill:#0b1616;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect4742"
-       width="120"
-       height="180"
-       x="0"
-       y="872.36218" />
     <path
        style="opacity:1;fill:#0b1616;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d=""
@@ -86,7 +72,7 @@
        transform="translate(0,872.36216)" />
     <path
        sodipodi:type="star"
-       style="opacity:1;fill:#8fda1f;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:1;fill:#ea6262;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4357"
        sodipodi:sides="3"
        sodipodi:cx="19.999996"
@@ -116,11 +102,11 @@
        sodipodi:cx="19.999996"
        sodipodi:sides="3"
        id="path4359"
-       style="opacity:1;fill:#8fda1f;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:1;fill:#ea6262;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        sodipodi:type="star" />
     <path
        sodipodi:type="star"
-       style="opacity:1;fill:#8fda1f;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:1;fill:#ea6262;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4380"
        sodipodi:sides="3"
        sodipodi:cx="19.999996"
@@ -150,7 +136,7 @@
        sodipodi:cx="19.999996"
        sodipodi:sides="3"
        id="path4382"
-       style="opacity:1;fill:#8fda1f;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:1;fill:#ea6262;fill-opacity:1;stroke:none;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        sodipodi:type="star" />
   </g>
 </svg>
