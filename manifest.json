@@ -1,0 +1,16 @@
+{
+    "short_name": "Card Battle",
+    "name": "Card Battle",
+    "icons": [
+        {
+            "src": "./img/icon.png",
+            "sizes": "96x96",
+            "type": "image/png"
+    }
+  ],
+    "start_url": "./index.html",
+    "background_color": "#0C0C0C",
+    "theme_color": "#0C0C0C",
+    "display": "fullscreen",
+    "orientation": "portrait"
+}
