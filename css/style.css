@@ -19,30 +19,33 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-height: 100vh;
   height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   grid-gap: 26.66667px;
   position: relative; }
 
 .main {
   height: 100%;
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  align-content: center;
-  margin: 0 auto; }
+  grid-template: 1fr 1fr / 1fr;
+  margin: 0 auto;
+  padding: 20px;
+  grid-gap: 20px; }
 
 .cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  grid-gap: 20px;
-  padding: 20px; }
+  grid-gap: 20px; }
   .cards__active {
     display: grid;
     grid-template: 220px / 180px 160px 160px 180px;
     grid-gap: 80px;
     margin: 0 auto; }
+  .cards__mine {
+    overflow: auto;
+    overflow-x: hidden; }
   .cards__tile {
     width: 32vw;
     height: 44vw;
@@ -93,12 +96,9 @@ body {
     font-size: 32px; }
 
 .menu {
+  width: 100%;
   display: grid;
   grid-gap: 20px; }
-  .menu--absolute {
-    width: 100%; }
-    .menu--absolute .btn {
-      font-size: 24px; }
 
 .settings {
   display: flex;
@@ -157,6 +157,10 @@ body {
     font-size: 20px;
     background: none;
     width: 100%; }
+    .form__input:invalid {
+      border-color: crimson; }
+    .form__input:valid {
+      border-color: forestgreen; }
   .form__btn-box {
     position: absolute;
     top: 20px;
@@ -191,40 +195,25 @@ body {
     opacity: 1; } }
 
 @media (max-width: 980px) {
-  .menu--absolute {
-    position: sticky;
-    width: 100vw;
-    left: 0;
-    bottom: 0;
-    background: #ea6262;
-    margin: -20px;
-    margin-top: 0;
-    padding: 20px; }
-    .menu--absolute .btn {
-      color: #0c0c0c;
-      border: 2px solid #0c0c0c; }
-      .menu--absolute .btn:hover {
-        background: #0c0c0c;
-        color: #ea6262; }
   .btn {
     font-size: 24px;
     min-width: 10em;
     padding: .5em; }
   .main {
     align-content: space-between;
-    grid-template-rows: auto auto; }
-  .cards__active {
-    display: grid;
-    grid-template: auto auto / .5fr .5fr;
-    grid-gap: 20px; }
-  .cards__result {
-    height: auto;
-    font-size: 20px;
-    order: 1; }
-  .cards__tile {
-    order: 3; }
-  .cards__opponent {
-    display: none; }
+    grid-template-rows: 1fr auto; }
+  .cards {
+    align-content: flex-start; }
+    .cards__active {
+      display: grid;
+      grid-template: auto auto / .5fr .5fr;
+      grid-gap: 20px; }
+    .cards__result {
+      height: auto;
+      font-size: 20px;
+      order: 1; }
+    .cards__tile {
+      order: 3; }
   .text {
     font-size: 48px; }
     .text--sm {

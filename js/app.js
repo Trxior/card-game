@@ -3,20 +3,25 @@ const menu = document.getElementById('menu'),
 
 let cards = {
         opponent: {
-            name: '',
             cards: [],
             points: 0
         },
         mine: {
-            name: '',
             cards: [],
             points: 0
         }
     },
-    setRounds = 10,
     timeout = false,
-    playerName = 'Player';
+    playerName,
+    setRounds;
 
+if (localStorage.getItem("playerName") === null) {
+    localStorage.setItem("playerName", "Player 1");
+}
+
+if (localStorage.getItem("rounds") === null) {
+    localStorage.setItem("rounds", "6");
+}
 
 fadeIn = (el) => {
     el.classList.add('fade');
@@ -30,6 +35,7 @@ random = (min, max) => {
 }
 
 newGame = () => {
+    getData();
     randomCards('mine');
     randomCards('opponent');
 
@@ -40,39 +46,48 @@ newGame = () => {
     chooseCard();
 }
 
+getData = () => {
+    playerName = localStorage.getItem("playerName");
+    setRounds = localStorage.getItem("rounds");
+}
+
 showSettings = () => {
+    getData();
     let div = document.createElement('div');
     div.className = 'settings';
     div.innerHTML = `
     <div class="settings" id="settings-box">
         <div class="settings__box">
             <h2 class="text text--sm">Settings</h2>
-            <div class="form">
+            <form class="form" id="form">
                 <div class="form__tile">
                     <label for="player-name" class="form__label">Player name</label>
-                    <input type="text" id="player-name" minlength="3" maxlength="20" value="${playerName}" class="form__input">
+                    <input required type="text" id="player-name" minlength="3" maxlength="20" value="${playerName}" class="form__input">
                 </div>
                 <div class="form__tile">
                     <label for="cards-number" class="form__label">Number of cards</label>
-                    <input type="number" id="cards-number" min="5" max="20" value="${setRounds}" class="form__input">
+                    <input required type="number" id="cards-number" min="5" max="20" value="${setRounds}" class="form__input">
                 </div>
-                <div class="form__btn-box">
-                    <button class="form__btn form__btn--green" id="btn-accept">Save</button>
-                    <button class="form__btn form__btn--red" id="btn-cancel">Close</button>
-                </div>
+            <div class="form__btn-box">
+                <button class="form__btn form__btn--green" type="submit" form="form">Save</button>
+                <button class="form__btn form__btn--red"  type="button" id="btn-cancel">Close</button>
             </div>
+            </form>
         </div>
     </div>`;
     app.appendChild(div);
     fadeIn(div);
 
-    document.getElementById('btn-accept').addEventListener('click', () => {
+    const form = document.getElementById("form");
+
+    form.addEventListener("submit", e => {
+        e.preventDefault();
         let playerNameInput = document.getElementById("player-name").value;
         let cardsNumberInput = document.getElementById("cards-number").value;
 
         if (cardsNumberInput <= 20 && cardsNumberInput >= 5 && playerNameInput.length >= 3 && playerNameInput.length <= 20) {
-            setRounds = cardsNumberInput;
-            playerName = playerNameInput;
+            localStorage.setItem("playerName", playerNameInput);
+            localStorage.setItem("rounds", cardsNumberInput);
             document.querySelector('.settings').remove();
         }
     })
@@ -231,5 +246,11 @@ start = () => {
         return showSettings();
     })
 }
+
+window.addEventListener('resize', () => {
+    // We execute the same script as before
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
 
 start();

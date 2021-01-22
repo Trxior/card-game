@@ -7,8 +7,8 @@ $pink: rgba(234, 98, 98, 1);
 $white: rgba(242, 242, 242, 1);
 $black: rgba(12, 12, 12, 1);
 
-$red: crimson;
-$green: forestgreen;
+$red: rgba(220, 20, 60, 1);
+$green: rgba(34, 139, 34, 1);
 
 
 * {
@@ -31,8 +31,8 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    max-height: 100vh;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     grid-gap: $padding/1.5;
     position: relative;
 }
@@ -40,9 +40,10 @@ body {
 .main {
     height: 100%;
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    align-content: center;
+    grid-template: 1fr 1fr / 1fr;
     margin: 0 auto;
+    padding: $padding/2;
+    grid-gap: $padding/2;
 }
 
 .cards {
@@ -51,13 +52,17 @@ body {
     justify-content: center;
     align-content: center;
     grid-gap: $padding/2;
-    padding: $padding/2;
 
     &__active {
         display: grid;
         grid-template: 220px / 180px 160px 160px 180px;
         grid-gap: $padding*2;
         margin: 0 auto;
+    }
+
+    &__mine {
+        overflow: auto;
+        overflow-x: hidden;
     }
 
     &__tile {
@@ -121,16 +126,9 @@ body {
 }
 
 .menu {
+    width: 100%;
     display: grid;
     grid-gap: $padding/2;
-
-    &--absolute {
-        width: 100%;
-
-        .btn {
-            font-size: 24px;
-        }
-    }
 }
 
 .settings {
@@ -203,6 +201,14 @@ body {
         font-size: 20px;
         background: none;
         width: 100%;
+
+        &:invalid {
+            border-color: $red;
+        }
+
+        &:valid {
+            border-color: $green;
+        }
     }
 
     &__btn-box {
@@ -252,29 +258,6 @@ body {
 }
 
 @media (max-width: 980px) {
-    .menu {
-        &--absolute {
-            position: sticky;
-            width: 100vw;
-            left: 0;
-            bottom: 0;
-            background: $pink;
-            margin: -$padding/2;
-            margin-top: 0;
-            padding: $padding/2;
-
-            .btn {
-                color: $black;
-                border: 2px solid $black;
-
-                &:hover {
-                    background: $black;
-                    color: $pink;
-                }
-            }
-        }
-    }
-
     .btn {
         font-size: 24px;
         min-width: 10em;
@@ -283,15 +266,18 @@ body {
 
     .main {
         align-content: space-between;
-        grid-template-rows: auto auto;
+        grid-template-rows: 1fr auto;
     }
 
     .cards {
+        align-content: flex-start;
+
         &__active {
             display: grid;
             grid-template: auto auto / .5fr .5fr;
             grid-gap: $padding/2;
         }
+
 
         &__result {
             height: auto;
@@ -301,10 +287,6 @@ body {
 
         &__tile {
             order: 3;
-        }
-
-        &__opponent {
-            display: none;
         }
     }
 
